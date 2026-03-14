@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival predictions</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="aqua">
+<style>
+    .form {
+        text-align: -webkit-center;
+    }
+</style>
+<!--style="text-align: center; border-radius: 3%; background-color:aliceblue; position:absolute;
+top: 50%; left:50%; transform:translate(-50%, -50%);"-->
+
+<div style="text-align: center; border-radius: 3%; background-color:aliceblue; " >
+<form action="/predict" class="was-validated" method="POST">
+  <br>
+  <div class="mb-3 mt-3">
+    <label for="uname" class="form-label" style="text-align: left;">Name:</label>
+    <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Select a valid number.</div>
+  </div>
+  <div class="mb-3 mt-3">
+    <label for="uname" class="form-label" style="text-align: left;">Age:</label>
+    <input type="number" min='1' max="98" class="form-control" placeholder="Enter age" name="age" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Select a valid number.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="pwd" class="form-label">Cabin:</label>
+    <input type="text" class="form-control"  placeholder="Enter Cabin or deck" name="cabin" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">input the cabin name</div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="pwd" class="form-label">select Sex:</label>
+    <select class="form-control" name="sex" required>
+        <option value="">select sex</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please select sex.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="pwd" class="form-label">select location of boarding:</label>
+    <select class="form-control" name="Embarked" required>
+        <option value="">select location</option>
+        <option value="S">Southampton</option>
+        <option value="C">Cherbourg</option>
+        <option value="Q">Queenstown</option>
+    </select>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please Select a valid location.</div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="uname" class="form-label">Number of Siblings and spouse:</label>
+    <input type="number" max="10" name="SibSp" class="form-control" placeholder="Enter Number of Siblings and spouse" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">input in a valid number for Siblings and spouse[1-10].</div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="uname" class="form-label">Number of parents and children:</label>
+    <input type="number" name="Parch" max="10" class="form-control" placeholder="Enter Number of parents and children" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">input a valid number for parents and children ranges[1-10] .</div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="uname" class="form-label">Enter Fare price:</label>
+    <input type="number"  name="Fare" max="200.00" class="form-control"  placeholder="Enter Fare price" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Select Fare price max of 900.</div>
+  </div>
+
+  
+  <div class="mb-3">
+    <label for="pwd" class="form-label">select Passanger class:</label>
+    <select class="form-control" name="pclass" required>
+        <option value="">select P class</option>
+        <option value="1">1st class</option>
+        <option value="2">2nd class</option>
+        <option value="3">3rd class</option>
+    </select>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Select persenger class.</div>
+  </div>
+
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+    <label class="form-check-label" for="myCheck">I agree on born mobile term's and conditions.</label>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Check this checkbox to continue.</div>
+  </div>
+  <div>
+  <button type="submit" class="btn btn-primary" name="submit">  Submit </button>
+
+  <a href="/" , class="btn btn-secondary"> reset </a>
+  </div>
+  <br>
+
+
+
+</form>
+</div>
+
+
+  {% if predicted %}
+    <script>alert("{{ prediction[0] | safe}}")</script>
+  {% else %}
+     
+  {% endif %}
+
+</script>
+
+</body>
+   
+</html>
