@@ -76,9 +76,7 @@ titanic-survival-app/
 ├── app.py
 |
 ├── utilities.py
-│   ├── app.py
-│   └── templates/
-│       └── index.html
+│   
 │
 ├── requirements.txt
 ├── README.md
